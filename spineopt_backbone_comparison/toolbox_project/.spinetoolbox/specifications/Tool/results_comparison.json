@@ -1,0 +1,13 @@
+{
+    "name": "Results Comparison",
+    "tooltype": "python",
+    "includes": [
+        "results_comparison.py"
+    ],
+    "description": "Comparison between BB and SpineOpt results",
+    "inputfiles": [],
+    "inputfiles_opt": [],
+    "outputfiles": [],
+    "cmdline_args": [],
+    "includes_main_path": "../../../.."
+}
