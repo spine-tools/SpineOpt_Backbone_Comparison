@@ -1,0 +1,2006 @@
+{
+    "project": {
+        "version": 10,
+        "description": "",
+        "specifications": {
+            "Tool": [
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": "spineToolbox.json"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": "tools/bb_base_sets.json"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Tool/results_comparison.json"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Tool/backbone_bis.json"
+                }
+            ],
+            "Importer": [
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": "tools/bb_to_spinedb_ts.json"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": "tools/bb_to_spinedb.json"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": "tools/import_bacbkone_base_sets_to_spinedb.json"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/results_importer.json"
+                }
+            ],
+            "Data Transformer": [
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": "tools/Convert_to_Bacbbone_parameter_names.json"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": "tools/Convert_to_Backbone_set_names.json"
+                }
+            ],
+            "Exporter": [
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": "tools/exporttobb.json"
+                }
+            ]
+        },
+        "connections": [
+            {
+                "name": "from BB_config_files to Backbone",
+                "from": [
+                    "BB_config_files",
+                    "right"
+                ],
+                "to": [
+                    "Backbone",
+                    "bottom"
+                ]
+            },
+            {
+                "name": "from Export_to_BB to Backbone",
+                "from": [
+                    "Export_to_BB",
+                    "right"
+                ],
+                "to": [
+                    "Backbone",
+                    "left"
+                ]
+            },
+            {
+                "name": "from BB_sets to Export_to_BB",
+                "from": [
+                    "BB_sets",
+                    "right"
+                ],
+                "to": [
+                    "Export_to_BB",
+                    "left"
+                ]
+            },
+            {
+                "name": "from Backbone to Results Importer",
+                "from": [
+                    "Backbone",
+                    "right"
+                ],
+                "to": [
+                    "Results Importer",
+                    "left"
+                ]
+            },
+            {
+                "name": "from Results Importer to BB_results",
+                "from": [
+                    "Results Importer",
+                    "right"
+                ],
+                "to": [
+                    "BB_results",
+                    "left"
+                ],
+                "options": {
+                    "purge_before_writing": true,
+                    "purge_settings": {
+                        "object_class": false,
+                        "relationship_class": false,
+                        "parameter_value_list": false,
+                        "list_value": false,
+                        "parameter_definition": false,
+                        "object": true,
+                        "relationship": true,
+                        "entity_group": true,
+                        "parameter_value": true,
+                        "alternative": true,
+                        "scenario": true,
+                        "scenario_alternative": true,
+                        "feature": false,
+                        "tool": false,
+                        "tool_feature": false,
+                        "tool_feature_method": false,
+                        "metadata": false,
+                        "entity_metadata": true,
+                        "parameter_value_metadata": true
+                    }
+                }
+            },
+            {
+                "name": "from SpineOpt to SO_results",
+                "from": [
+                    "SpineOpt",
+                    "right"
+                ],
+                "to": [
+                    "SO_results",
+                    "left"
+                ],
+                "options": {
+                    "purge_before_writing": true,
+                    "purge_settings": {
+                        "object_class": false,
+                        "relationship_class": false,
+                        "parameter_value_list": false,
+                        "list_value": false,
+                        "parameter_definition": false,
+                        "object": true,
+                        "relationship": true,
+                        "entity_group": true,
+                        "parameter_value": true,
+                        "alternative": true,
+                        "scenario": true,
+                        "scenario_alternative": true,
+                        "feature": false,
+                        "tool": false,
+                        "tool_feature": false,
+                        "tool_feature_method": false,
+                        "metadata": false,
+                        "entity_metadata": true,
+                        "parameter_value_metadata": true
+                    }
+                }
+            },
+            {
+                "name": "from SO_results to Results Comparison",
+                "from": [
+                    "SO_results",
+                    "right"
+                ],
+                "to": [
+                    "Results Comparison",
+                    "left"
+                ],
+                "filter_settings": {
+                    "known_filters": {
+                        "db_url@SO_results": {
+                            "scenario_filter": {},
+                            "tool_filter": {
+                                "object_activity_control": true
+                            }
+                        }
+                    },
+                    "auto_online": true
+                }
+            },
+            {
+                "name": "from BB_results to Results Comparison",
+                "from": [
+                    "BB_results",
+                    "right"
+                ],
+                "to": [
+                    "Results Comparison",
+                    "left"
+                ],
+                "filter_settings": {
+                    "known_filters": {
+                        "db_url@BB_results": {
+                            "scenario_filter": {},
+                            "tool_filter": {
+                                "object_activity_control": true
+                            }
+                        }
+                    },
+                    "auto_online": true
+                }
+            },
+            {
+                "name": "from SO_data_2 to SpineOpt 2",
+                "from": [
+                    "SO_data_2",
+                    "right"
+                ],
+                "to": [
+                    "SpineOpt 2",
+                    "left"
+                ],
+                "filter_settings": {
+                    "known_filters": {
+                        "db_url@SO_data_2": {
+                            "scenario_filter": {},
+                            "tool_filter": {
+                                "object_activity_control": true
+                            }
+                        }
+                    },
+                    "auto_online": true
+                }
+            },
+            {
+                "name": "from SpineOpt 2 to SO_results_2",
+                "from": [
+                    "SpineOpt 2",
+                    "right"
+                ],
+                "to": [
+                    "SO_results_2",
+                    "left"
+                ],
+                "options": {
+                    "purge_before_writing": true,
+                    "purge_settings": {
+                        "object_class": false,
+                        "relationship_class": false,
+                        "parameter_value_list": false,
+                        "list_value": false,
+                        "parameter_definition": false,
+                        "object": true,
+                        "relationship": true,
+                        "entity_group": true,
+                        "parameter_value": true,
+                        "alternative": true,
+                        "scenario": true,
+                        "scenario_alternative": true,
+                        "feature": false,
+                        "tool": false,
+                        "tool_feature": false,
+                        "tool_feature_method": false,
+                        "metadata": false,
+                        "entity_metadata": true,
+                        "parameter_value_metadata": true
+                    }
+                }
+            },
+            {
+                "name": "from SO_results_2 to Results Comparison (1)",
+                "from": [
+                    "SO_results_2",
+                    "right"
+                ],
+                "to": [
+                    "Results Comparison (1)",
+                    "left"
+                ],
+                "filter_settings": {
+                    "known_filters": {
+                        "db_url@SO_results_2": {
+                            "scenario_filter": {},
+                            "tool_filter": {
+                                "object_activity_control": true
+                            }
+                        }
+                    },
+                    "auto_online": true
+                }
+            },
+            {
+                "name": "from Results Comparison (1) to Comparison Results 2",
+                "from": [
+                    "Results Comparison (1)",
+                    "right"
+                ],
+                "to": [
+                    "Comparison Results 2",
+                    "left"
+                ],
+                "options": {
+                    "purge_before_writing": true,
+                    "purge_settings": {
+                        "object_class": false,
+                        "relationship_class": false,
+                        "parameter_value_list": false,
+                        "list_value": false,
+                        "parameter_definition": false,
+                        "object": true,
+                        "relationship": true,
+                        "entity_group": true,
+                        "parameter_value": true,
+                        "alternative": true,
+                        "scenario": true,
+                        "scenario_alternative": true,
+                        "feature": false,
+                        "tool": false,
+                        "tool_feature": false,
+                        "tool_feature_method": false,
+                        "metadata": false,
+                        "entity_metadata": true,
+                        "parameter_value_metadata": true
+                    }
+                }
+            },
+            {
+                "name": "from BB_results_2 to Results Comparison (1)",
+                "from": [
+                    "BB_results_2",
+                    "right"
+                ],
+                "to": [
+                    "Results Comparison (1)",
+                    "left"
+                ],
+                "filter_settings": {
+                    "known_filters": {
+                        "db_url@BB_results_2": {
+                            "scenario_filter": {
+                                "specialFeaturesDisabled": true
+                            },
+                            "tool_filter": {}
+                        }
+                    },
+                    "auto_online": true
+                }
+            },
+            {
+                "name": "from BB_data_2 to BB_sets (1)",
+                "from": [
+                    "BB_data_2",
+                    "right"
+                ],
+                "to": [
+                    "BB_sets (1)",
+                    "left"
+                ],
+                "filter_settings": {
+                    "known_filters": {
+                        "db_url@BB_data_2": {
+                            "scenario_filter": {
+                                "specialFeaturesDisabled": true
+                            },
+                            "tool_filter": {}
+                        }
+                    },
+                    "auto_online": true
+                }
+            },
+            {
+                "name": "from BB_sets (1) to Export_to_BB (1)",
+                "from": [
+                    "BB_sets (1)",
+                    "right"
+                ],
+                "to": [
+                    "Export_to_BB (1)",
+                    "left"
+                ]
+            },
+            {
+                "name": "from Export_to_BB (1) to Backbone 2",
+                "from": [
+                    "Export_to_BB (1)",
+                    "right"
+                ],
+                "to": [
+                    "Backbone 2",
+                    "left"
+                ]
+            },
+            {
+                "name": "from BB_config_files (1) to Backbone 2",
+                "from": [
+                    "BB_config_files (1)",
+                    "right"
+                ],
+                "to": [
+                    "Backbone 2",
+                    "bottom"
+                ]
+            },
+            {
+                "name": "from Backbone 2 to Results Importer (1)",
+                "from": [
+                    "Backbone 2",
+                    "right"
+                ],
+                "to": [
+                    "Results Importer (1)",
+                    "left"
+                ]
+            },
+            {
+                "name": "from Results Importer (1) to BB_results_2",
+                "from": [
+                    "Results Importer (1)",
+                    "right"
+                ],
+                "to": [
+                    "BB_results_2",
+                    "left"
+                ],
+                "options": {
+                    "purge_before_writing": true,
+                    "purge_settings": {
+                        "object_class": false,
+                        "relationship_class": false,
+                        "parameter_value_list": false,
+                        "list_value": false,
+                        "parameter_definition": false,
+                        "object": true,
+                        "relationship": true,
+                        "entity_group": true,
+                        "parameter_value": true,
+                        "alternative": true,
+                        "scenario": true,
+                        "scenario_alternative": true,
+                        "feature": false,
+                        "tool": false,
+                        "tool_feature": false,
+                        "tool_feature_method": false,
+                        "metadata": false,
+                        "entity_metadata": true,
+                        "parameter_value_metadata": true
+                    }
+                }
+            },
+            {
+                "name": "from BB_config_files (2) to Backbone 2 (1)",
+                "from": [
+                    "BB_config_files (2)",
+                    "right"
+                ],
+                "to": [
+                    "Backbone 2 (1)",
+                    "bottom"
+                ]
+            },
+            {
+                "name": "from Export_to_BB (2) to Backbone 2 (1)",
+                "from": [
+                    "Export_to_BB (2)",
+                    "right"
+                ],
+                "to": [
+                    "Backbone 2 (1)",
+                    "left"
+                ]
+            },
+            {
+                "name": "from BB_sets (2) to Export_to_BB (2)",
+                "from": [
+                    "BB_sets (2)",
+                    "right"
+                ],
+                "to": [
+                    "Export_to_BB (2)",
+                    "left"
+                ]
+            },
+            {
+                "name": "from Backbone 2 (1) to Results Importer (2)",
+                "from": [
+                    "Backbone 2 (1)",
+                    "right"
+                ],
+                "to": [
+                    "Results Importer (2)",
+                    "left"
+                ]
+            },
+            {
+                "name": "from SO_data_3 to SpineOpt 2 (1)",
+                "from": [
+                    "SO_data_3",
+                    "right"
+                ],
+                "to": [
+                    "SpineOpt 2 (1)",
+                    "left"
+                ],
+                "filter_settings": {
+                    "known_filters": {
+                        "db_url@SO_data_3": {
+                            "scenario_filter": {},
+                            "tool_filter": {
+                                "object_activity_control": true
+                            }
+                        }
+                    },
+                    "auto_online": true
+                }
+            },
+            {
+                "name": "from SpineOpt 2 (1) to SO_results_3",
+                "from": [
+                    "SpineOpt 2 (1)",
+                    "right"
+                ],
+                "to": [
+                    "SO_results_3",
+                    "left"
+                ],
+                "options": {
+                    "purge_before_writing": true,
+                    "purge_settings": {
+                        "object_class": false,
+                        "relationship_class": false,
+                        "parameter_value_list": false,
+                        "list_value": false,
+                        "parameter_definition": false,
+                        "object": true,
+                        "relationship": true,
+                        "entity_group": true,
+                        "parameter_value": true,
+                        "alternative": true,
+                        "scenario": true,
+                        "scenario_alternative": true,
+                        "feature": false,
+                        "tool": false,
+                        "tool_feature": false,
+                        "tool_feature_method": false,
+                        "metadata": false,
+                        "entity_metadata": true,
+                        "parameter_value_metadata": true
+                    }
+                }
+            },
+            {
+                "name": "from SO_results_3 to Results Comparison (2)",
+                "from": [
+                    "SO_results_3",
+                    "right"
+                ],
+                "to": [
+                    "Results Comparison (2)",
+                    "left"
+                ]
+            },
+            {
+                "name": "from BB_results_3 to Results Comparison (2)",
+                "from": [
+                    "BB_results_3",
+                    "right"
+                ],
+                "to": [
+                    "Results Comparison (2)",
+                    "left"
+                ],
+                "filter_settings": {
+                    "known_filters": {
+                        "db_url@BB_results_3": {
+                            "scenario_filter": {
+                                "specialFeaturesDisabled": true
+                            },
+                            "tool_filter": {}
+                        }
+                    },
+                    "auto_online": true
+                }
+            },
+            {
+                "name": "from Results Comparison (2) to Comparison Results 3",
+                "from": [
+                    "Results Comparison (2)",
+                    "right"
+                ],
+                "to": [
+                    "Comparison Results 3",
+                    "left"
+                ]
+            },
+            {
+                "name": "from Results Importer (2) to BB_results_3",
+                "from": [
+                    "Results Importer (2)",
+                    "right"
+                ],
+                "to": [
+                    "BB_results_3",
+                    "left"
+                ],
+                "options": {
+                    "purge_before_writing": true,
+                    "purge_settings": {
+                        "object_class": false,
+                        "relationship_class": false,
+                        "parameter_value_list": false,
+                        "list_value": false,
+                        "parameter_definition": false,
+                        "object": true,
+                        "relationship": true,
+                        "entity_group": true,
+                        "parameter_value": true,
+                        "alternative": true,
+                        "scenario": true,
+                        "scenario_alternative": true,
+                        "feature": false,
+                        "tool": false,
+                        "tool_feature": false,
+                        "tool_feature_method": false,
+                        "metadata": false,
+                        "entity_metadata": true,
+                        "parameter_value_metadata": true
+                    }
+                }
+            },
+            {
+                "name": "from BB_data_3 to BB_sets (2)",
+                "from": [
+                    "BB_data_3",
+                    "right"
+                ],
+                "to": [
+                    "BB_sets (2)",
+                    "left"
+                ],
+                "filter_settings": {
+                    "known_filters": {
+                        "db_url@BB_data_3": {
+                            "scenario_filter": {
+                                "specialFeaturesDisabled": true
+                            },
+                            "tool_filter": {}
+                        }
+                    },
+                    "auto_online": true
+                }
+            },
+            {
+                "name": "from Results Comparison to Comparison Results",
+                "from": [
+                    "Results Comparison",
+                    "right"
+                ],
+                "to": [
+                    "Comparison Results",
+                    "left"
+                ],
+                "options": {
+                    "purge_before_writing": true,
+                    "purge_settings": {
+                        "object_class": true,
+                        "relationship_class": true,
+                        "parameter_value_list": true,
+                        "list_value": true,
+                        "parameter_definition": true,
+                        "object": true,
+                        "relationship": true,
+                        "entity_group": true,
+                        "parameter_value": true,
+                        "alternative": true,
+                        "scenario": true,
+                        "scenario_alternative": true,
+                        "feature": true,
+                        "tool": true,
+                        "tool_feature": true,
+                        "tool_feature_method": true,
+                        "metadata": true,
+                        "entity_metadata": true,
+                        "parameter_value_metadata": true
+                    }
+                }
+            },
+            {
+                "name": "from Alternative_SO_data_3 to SpineOpt",
+                "from": [
+                    "Alternative_SO_data_3",
+                    "right"
+                ],
+                "to": [
+                    "SpineOpt",
+                    "left"
+                ],
+                "filter_settings": {
+                    "known_filters": {
+                        "db_url@Alternative_SO_data_3": {
+                            "scenario_filter": {},
+                            "tool_filter": {
+                                "object_activity_control": true
+                            }
+                        }
+                    },
+                    "auto_online": true
+                }
+            },
+            {
+                "name": "from Alternative_BB_data_3 to BB_sets",
+                "from": [
+                    "Alternative_BB_data_3",
+                    "right"
+                ],
+                "to": [
+                    "BB_sets",
+                    "left"
+                ],
+                "filter_settings": {
+                    "known_filters": {
+                        "db_url@Alternative_BB_data_3": {
+                            "scenario_filter": {
+                                "batterySelfDischargeLoss": true,
+                                "batteryTransferLoss": true,
+                                "nuclearMustRun": true,
+                                "ocgtMinTimes": true,
+                                "specialFeaturesDisabled": true
+                            },
+                            "tool_filter": {}
+                        }
+                    },
+                    "auto_online": true
+                }
+            },
+            {
+                "name": "from SO_data_4 to SpineOpt 2 (2)",
+                "from": [
+                    "SO_data_4",
+                    "right"
+                ],
+                "to": [
+                    "SpineOpt 2 (2)",
+                    "left"
+                ],
+                "filter_settings": {
+                    "known_filters": {
+                        "db_url@SO_data_4": {
+                            "scenario_filter": {},
+                            "tool_filter": {
+                                "object_activity_control": true
+                            }
+                        }
+                    },
+                    "auto_online": true
+                }
+            },
+            {
+                "name": "from SpineOpt 2 (2) to SO_results_4",
+                "from": [
+                    "SpineOpt 2 (2)",
+                    "right"
+                ],
+                "to": [
+                    "SO_results_4",
+                    "left"
+                ],
+                "options": {
+                    "purge_before_writing": true,
+                    "purge_settings": {
+                        "object_class": false,
+                        "relationship_class": false,
+                        "parameter_value_list": false,
+                        "list_value": false,
+                        "parameter_definition": false,
+                        "object": true,
+                        "relationship": true,
+                        "entity_group": true,
+                        "parameter_value": true,
+                        "alternative": true,
+                        "scenario": true,
+                        "scenario_alternative": true,
+                        "feature": false,
+                        "tool": false,
+                        "tool_feature": false,
+                        "tool_feature_method": false,
+                        "metadata": false,
+                        "entity_metadata": true,
+                        "parameter_value_metadata": true
+                    }
+                }
+            },
+            {
+                "name": "from SO_results_4 to Results Comparison (3)",
+                "from": [
+                    "SO_results_4",
+                    "right"
+                ],
+                "to": [
+                    "Results Comparison (3)",
+                    "left"
+                ]
+            },
+            {
+                "name": "from Results Comparison (3) to Comparison Results 4",
+                "from": [
+                    "Results Comparison (3)",
+                    "right"
+                ],
+                "to": [
+                    "Comparison Results 4",
+                    "left"
+                ],
+                "options": {
+                    "purge_before_writing": true,
+                    "purge_settings": {
+                        "object_class": false,
+                        "relationship_class": false,
+                        "parameter_value_list": false,
+                        "list_value": false,
+                        "parameter_definition": false,
+                        "object": true,
+                        "relationship": true,
+                        "entity_group": true,
+                        "parameter_value": true,
+                        "alternative": true,
+                        "scenario": true,
+                        "scenario_alternative": true,
+                        "feature": false,
+                        "tool": false,
+                        "tool_feature": false,
+                        "tool_feature_method": false,
+                        "metadata": false,
+                        "entity_metadata": true,
+                        "parameter_value_metadata": true
+                    }
+                }
+            },
+            {
+                "name": "from BB_results_4 to Results Comparison (3)",
+                "from": [
+                    "BB_results_4",
+                    "right"
+                ],
+                "to": [
+                    "Results Comparison (3)",
+                    "left"
+                ]
+            },
+            {
+                "name": "from BB_sets (3) to Export_to_BB (3)",
+                "from": [
+                    "BB_sets (3)",
+                    "right"
+                ],
+                "to": [
+                    "Export_to_BB (3)",
+                    "left"
+                ]
+            },
+            {
+                "name": "from Export_to_BB (3) to Backbone 2 (2)",
+                "from": [
+                    "Export_to_BB (3)",
+                    "right"
+                ],
+                "to": [
+                    "Backbone 2 (2)",
+                    "left"
+                ]
+            },
+            {
+                "name": "from BB_config_files (3) to Backbone 2 (2)",
+                "from": [
+                    "BB_config_files (3)",
+                    "right"
+                ],
+                "to": [
+                    "Backbone 2 (2)",
+                    "bottom"
+                ]
+            },
+            {
+                "name": "from Backbone 2 (2) to Results Importer (3)",
+                "from": [
+                    "Backbone 2 (2)",
+                    "right"
+                ],
+                "to": [
+                    "Results Importer (3)",
+                    "left"
+                ]
+            },
+            {
+                "name": "from Results Importer (3) to BB_results_4",
+                "from": [
+                    "Results Importer (3)",
+                    "right"
+                ],
+                "to": [
+                    "BB_results_4",
+                    "left"
+                ],
+                "options": {
+                    "purge_before_writing": true,
+                    "purge_settings": {
+                        "object_class": false,
+                        "relationship_class": false,
+                        "parameter_value_list": false,
+                        "list_value": false,
+                        "parameter_definition": false,
+                        "object": true,
+                        "relationship": true,
+                        "entity_group": true,
+                        "parameter_value": true,
+                        "alternative": true,
+                        "scenario": true,
+                        "scenario_alternative": true,
+                        "feature": false,
+                        "tool": false,
+                        "tool_feature": false,
+                        "tool_feature_method": false,
+                        "metadata": false,
+                        "entity_metadata": true,
+                        "parameter_value_metadata": true
+                    }
+                }
+            },
+            {
+                "name": "from BB_data_4_bis to BB_sets (3)",
+                "from": [
+                    "BB_data_4_bis",
+                    "right"
+                ],
+                "to": [
+                    "BB_sets (3)",
+                    "left"
+                ],
+                "filter_settings": {
+                    "known_filters": {
+                        "db_url@BB_data_4_bis": {
+                            "scenario_filter": {
+                                "specialFeaturesDisabled": true
+                            },
+                            "tool_filter": {}
+                        }
+                    },
+                    "auto_online": true
+                }
+            }
+        ],
+        "jumps": []
+    },
+    "items": {
+        "BB_config_files": {
+            "type": "Data Connection",
+            "description": "",
+            "x": 145.3487619487123,
+            "y": 29.80788265420346,
+            "file_references": [
+                {
+                    "type": "path",
+                    "relative": false,
+                    "path": "C:/Users/lflouis/archive_local_spineopt_backbone_comparison/6unit_storage/1_options.gms"
+                },
+                {
+                    "type": "path",
+                    "relative": false,
+                    "path": "C:/Users/lflouis/archive_local_spineopt_backbone_comparison/6unit_storage/6unit_storage_test_scenarios.json"
+                },
+                {
+                    "type": "path",
+                    "relative": false,
+                    "path": "C:/Users/lflouis/archive_local_spineopt_backbone_comparison/6unit_storage/inputData.inc"
+                },
+                {
+                    "type": "path",
+                    "relative": false,
+                    "path": "C:/Users/lflouis/archive_local_spineopt_backbone_comparison/6unit_storage/inputData_.inc"
+                },
+                {
+                    "type": "path",
+                    "relative": false,
+                    "path": "C:/Users/lflouis/archive_local_spineopt_backbone_comparison/6unit_storage/investInit.gms"
+                },
+                {
+                    "type": "path",
+                    "relative": false,
+                    "path": "C:/Users/lflouis/archive_local_spineopt_backbone_comparison/6unit_storage/modelsInit.gms"
+                },
+                {
+                    "type": "path",
+                    "relative": false,
+                    "path": "C:/Users/lflouis/archive_local_spineopt_backbone_comparison/6unit_storage/scheduleInit.gms"
+                },
+                {
+                    "type": "path",
+                    "relative": false,
+                    "path": "C:/Users/lflouis/archive_local_spineopt_backbone_comparison/6unit_storage/timeAndSamples.inc"
+                }
+            ],
+            "db_references": []
+        },
+        "Backbone": {
+            "type": "Tool",
+            "description": "",
+            "x": 289.6092442499115,
+            "y": -127.3980384570797,
+            "specification": "Backbone",
+            "execute_in_work": true,
+            "cmd_line_args": [],
+            "kill_completed_processes": false
+        },
+        "BB_sets": {
+            "type": "Data Transformer",
+            "description": "",
+            "x": 13.515390272538923,
+            "y": -126.72923909442389,
+            "specification": "ToBackboneSets"
+        },
+        "Export_to_BB": {
+            "type": "Exporter",
+            "description": "",
+            "x": 146.27738633556572,
+            "y": -126.26142472531936,
+            "output_time_stamps": false,
+            "cancel_on_error": true,
+            "output_labels": [
+                {
+                    "in_label": "db_url@BB_sets",
+                    "out_label": "inputData.gdx"
+                }
+            ],
+            "specification": "ExportToBB"
+        },
+        "Results Importer": {
+            "type": "Importer",
+            "description": "",
+            "x": 430.46893686465796,
+            "y": -127.0186124101887,
+            "specification": "Results Importer",
+            "cancel_on_error": false,
+            "on_conflict": "merge",
+            "file_selection": [
+                [
+                    "Backbone.lst",
+                    false
+                ],
+                [
+                    "output/results.gdx",
+                    true
+                ]
+            ]
+        },
+        "SO_data": {
+            "type": "Data Store",
+            "description": "",
+            "x": -364.0894409071801,
+            "y": -233.28560338101468,
+            "url": {
+                "dialect": "sqlite",
+                "host": "",
+                "port": "",
+                "database": {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/items/so_data/SO_data.sqlite"
+                }
+            }
+        },
+        "SpineOpt": {
+            "type": "Tool",
+            "description": "",
+            "x": 292.79351475389313,
+            "y": -247.43320472677493,
+            "specification": "Run SpineOpt",
+            "execute_in_work": true,
+            "cmd_line_args": [
+                {
+                    "type": "resource",
+                    "arg": "db_url@Alternative_SO_data_3"
+                },
+                {
+                    "type": "resource",
+                    "arg": "db_url@SO_results"
+                }
+            ],
+            "options": {
+                "julia_sysimage": ""
+            },
+            "kill_completed_processes": false
+        },
+        "SO_results": {
+            "type": "Data Store",
+            "description": "",
+            "x": 574.2760786477551,
+            "y": -245.67950627373472,
+            "url": {
+                "dialect": "sqlite",
+                "host": "",
+                "port": "",
+                "database": {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/items/so_results/SO_results.sqlite"
+                }
+            }
+        },
+        "BB_results": {
+            "type": "Data Store",
+            "description": "",
+            "x": 576.0299020035079,
+            "y": -127.28420547428883,
+            "url": {
+                "dialect": "sqlite",
+                "host": "",
+                "port": "",
+                "database": {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/items/bb_results/Results.sqlite"
+                }
+            }
+        },
+        "Results Comparison": {
+            "type": "Tool",
+            "description": "",
+            "x": 746.0939034347635,
+            "y": -181.2566528175835,
+            "specification": "Results Comparison",
+            "execute_in_work": true,
+            "cmd_line_args": [
+                {
+                    "type": "resource",
+                    "arg": "db_url@BB_results"
+                },
+                {
+                    "type": "resource",
+                    "arg": "db_url@SO_results"
+                },
+                {
+                    "type": "resource",
+                    "arg": "db_url@Comparison Results"
+                }
+            ],
+            "kill_completed_processes": false
+        },
+        "Comparison Results": {
+            "type": "Data Store",
+            "description": "",
+            "x": 910.7318223922603,
+            "y": -181.36662394795067,
+            "url": {
+                "dialect": "sqlite",
+                "host": "",
+                "port": "",
+                "database": {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/items/comparison_results/Comparison Results.sqlite"
+                }
+            }
+        },
+        "BB_data": {
+            "type": "Data Store",
+            "description": "",
+            "x": -359.9286068332815,
+            "y": -114.1274085013157,
+            "url": {
+                "dialect": "sqlite",
+                "host": "",
+                "port": "",
+                "database": {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/items/bb_data/BB_data.sqlite"
+                }
+            }
+        },
+        "BB_data_2": {
+            "type": "Data Store",
+            "description": "",
+            "x": -132.92598023559748,
+            "y": 388.84106900732513,
+            "url": {
+                "dialect": "sqlite",
+                "host": "",
+                "port": "",
+                "database": {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/items/bb_data_2/BB_data_2.sqlite"
+                }
+            }
+        },
+        "SO_data_2": {
+            "type": "Data Store",
+            "description": "",
+            "x": -132.92598023559748,
+            "y": 238.88508758012563,
+            "url": {
+                "dialect": "sqlite",
+                "host": "",
+                "port": "",
+                "database": {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/items/so_data_2/SO_data_2.sqlite"
+                }
+            }
+        },
+        "BB_sets (1)": {
+            "type": "Data Transformer",
+            "description": "",
+            "x": 3.394610776572847,
+            "y": 389.1167033858113,
+            "specification": "ToBackboneSets"
+        },
+        "Export_to_BB (1)": {
+            "type": "Exporter",
+            "description": "",
+            "x": 136.15660683959976,
+            "y": 389.58451775491574,
+            "output_time_stamps": false,
+            "cancel_on_error": true,
+            "output_labels": [
+                {
+                    "in_label": "db_url@BB_sets (1)",
+                    "out_label": "inputData.gdx"
+                }
+            ],
+            "specification": "ExportToBB"
+        },
+        "BB_config_files (1)": {
+            "type": "Data Connection",
+            "description": "",
+            "x": 135.2279824527463,
+            "y": 542.3755171808717,
+            "file_references": [
+                {
+                    "type": "path",
+                    "relative": false,
+                    "path": "C:/Users/lflouis/archive_local_spineopt_backbone_comparison/6unit_storage/1_options.gms"
+                },
+                {
+                    "type": "path",
+                    "relative": false,
+                    "path": "C:/Users/lflouis/archive_local_spineopt_backbone_comparison/6unit_storage/6unit_storage_test_scenarios.json"
+                },
+                {
+                    "type": "path",
+                    "relative": false,
+                    "path": "C:/Users/lflouis/archive_local_spineopt_backbone_comparison/6unit_storage/inputData.inc"
+                },
+                {
+                    "type": "path",
+                    "relative": false,
+                    "path": "C:/Users/lflouis/archive_local_spineopt_backbone_comparison/6unit_storage/inputData_.inc"
+                },
+                {
+                    "type": "path",
+                    "relative": false,
+                    "path": "C:/Users/lflouis/archive_local_spineopt_backbone_comparison/6unit_storage/investInit.gms"
+                },
+                {
+                    "type": "path",
+                    "relative": false,
+                    "path": "C:/Users/lflouis/archive_local_spineopt_backbone_comparison/6unit_storage/modelsInit.gms"
+                },
+                {
+                    "type": "path",
+                    "relative": false,
+                    "path": "C:/Users/lflouis/archive_local_spineopt_backbone_comparison/6unit_storage/scheduleInit.gms"
+                },
+                {
+                    "type": "path",
+                    "relative": false,
+                    "path": "C:/Users/lflouis/archive_local_spineopt_backbone_comparison/6unit_storage/timeAndSamples.inc"
+                }
+            ],
+            "db_references": []
+        },
+        "BB_results_2": {
+            "type": "Data Store",
+            "description": "",
+            "x": 588.6446335394934,
+            "y": 389.3638982266439,
+            "url": {
+                "dialect": "sqlite",
+                "host": "",
+                "port": "",
+                "database": {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/items/bb_results_2/BB_results_2.sqlite"
+                }
+            }
+        },
+        "SO_results_2": {
+            "type": "Data Store",
+            "description": "",
+            "x": 591.7104910058449,
+            "y": 242.20273984177064,
+            "url": {
+                "dialect": "sqlite",
+                "host": "",
+                "port": "",
+                "database": {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/items/so_results_2/SO_results_2.sqlite"
+                }
+            }
+        },
+        "SpineOpt 2": {
+            "type": "Tool",
+            "description": "",
+            "x": 282.0588869043406,
+            "y": 239.13688237541902,
+            "specification": "Run SpineOpt",
+            "execute_in_work": true,
+            "cmd_line_args": [
+                {
+                    "type": "resource",
+                    "arg": "db_url@SO_data_2"
+                },
+                {
+                    "type": "resource",
+                    "arg": "db_url@SO_results_2"
+                }
+            ],
+            "kill_completed_processes": false
+        },
+        "Results Comparison (1)": {
+            "type": "Tool",
+            "description": "",
+            "x": 752.6680079893,
+            "y": 319.1898468205554,
+            "specification": "Results Comparison",
+            "execute_in_work": true,
+            "cmd_line_args": [
+                {
+                    "type": "resource",
+                    "arg": "db_url@BB_results_2"
+                },
+                {
+                    "type": "resource",
+                    "arg": "db_url@SO_results_2"
+                },
+                {
+                    "type": "resource",
+                    "arg": "db_url@Comparison Results 2"
+                }
+            ],
+            "kill_completed_processes": false
+        },
+        "Comparison Results 2": {
+            "type": "Data Store",
+            "description": "",
+            "x": 913.625524972755,
+            "y": 321.62943068079534,
+            "url": {
+                "dialect": "sqlite",
+                "host": "",
+                "port": "",
+                "database": {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/items/comparison_results_2/Comparison Results 2.sqlite"
+                }
+            }
+        },
+        "Backbone 2": {
+            "type": "Tool",
+            "description": "",
+            "x": 278.993029437989,
+            "y": 389.3638982266439,
+            "specification": "Backbone 2",
+            "execute_in_work": true,
+            "cmd_line_args": [],
+            "kill_completed_processes": false
+        },
+        "Full_SO_data": {
+            "type": "Data Store",
+            "description": "",
+            "x": -282.6329489067565,
+            "y": -232.46925383322196,
+            "url": {
+                "dialect": "sqlite",
+                "host": "",
+                "port": "",
+                "database": {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/items/full_so_data/Full_SO_data.sqlite"
+                }
+            }
+        },
+        "Results Importer (1)": {
+            "type": "Importer",
+            "description": "",
+            "x": 441.1832166082735,
+            "y": 388.8690012001777,
+            "specification": "Results Importer",
+            "cancel_on_error": false,
+            "on_conflict": "merge",
+            "file_selection": [
+                [
+                    "Backbone.lst",
+                    false
+                ],
+                [
+                    "output/results.gdx",
+                    true
+                ]
+            ]
+        },
+        "SO_data_3": {
+            "type": "Data Store",
+            "description": "",
+            "x": -141.16517787272545,
+            "y": 725.2969483805549,
+            "url": {
+                "dialect": "sqlite",
+                "host": "",
+                "port": "",
+                "database": {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/items/so_data_3/SO_data_3.sqlite"
+                }
+            }
+        },
+        "BB_data_3": {
+            "type": "Data Store",
+            "description": "",
+            "x": -139.84767775046424,
+            "y": 878.7018519447563,
+            "url": {
+                "dialect": "sqlite",
+                "host": "",
+                "port": "",
+                "database": {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/items/bb_data_3/BB_data_3.sqlite"
+                }
+            }
+        },
+        "SpineOpt 2 (1)": {
+            "type": "Tool",
+            "description": "",
+            "x": 274.87136916315893,
+            "y": 725.9910614884955,
+            "specification": "Run SpineOpt",
+            "execute_in_work": true,
+            "cmd_line_args": [
+                {
+                    "type": "resource",
+                    "arg": "db_url@SO_data_3"
+                },
+                {
+                    "type": "resource",
+                    "arg": "db_url@SO_results_3"
+                }
+            ],
+            "kill_completed_processes": false
+        },
+        "Results Importer (2)": {
+            "type": "Importer",
+            "description": "",
+            "x": 433.9956988670917,
+            "y": 875.723180313254,
+            "specification": "Results Importer",
+            "cancel_on_error": false,
+            "on_conflict": "merge",
+            "file_selection": [
+                [
+                    "Backbone.lst",
+                    false
+                ],
+                [
+                    "output/results.gdx",
+                    true
+                ]
+            ]
+        },
+        "Backbone 2 (1)": {
+            "type": "Tool",
+            "description": "",
+            "x": 271.8055116968073,
+            "y": 876.2180773397204,
+            "specification": "Backbone 2",
+            "execute_in_work": true,
+            "cmd_line_args": [],
+            "kill_completed_processes": false
+        },
+        "Export_to_BB (2)": {
+            "type": "Exporter",
+            "description": "",
+            "x": 128.96908909841812,
+            "y": 876.4386968679923,
+            "output_time_stamps": false,
+            "cancel_on_error": true,
+            "output_labels": [
+                {
+                    "in_label": "db_url@BB_sets (2)",
+                    "out_label": "inputData.gdx"
+                }
+            ],
+            "specification": "ExportToBB"
+        },
+        "BB_config_files (2)": {
+            "type": "Data Connection",
+            "description": "",
+            "x": 125.42025156724188,
+            "y": 1012.9604961381018,
+            "file_references": [
+                {
+                    "type": "path",
+                    "relative": false,
+                    "path": "C:/Users/lflouis/archive_local_spineopt_backbone_comparison/6unit_storage/1_options.gms"
+                },
+                {
+                    "type": "path",
+                    "relative": false,
+                    "path": "C:/Users/lflouis/archive_local_spineopt_backbone_comparison/6unit_storage/6unit_storage_test_scenarios.json"
+                },
+                {
+                    "type": "path",
+                    "relative": false,
+                    "path": "C:/Users/lflouis/archive_local_spineopt_backbone_comparison/6unit_storage/inputData.inc"
+                },
+                {
+                    "type": "path",
+                    "relative": false,
+                    "path": "C:/Users/lflouis/archive_local_spineopt_backbone_comparison/6unit_storage/inputData_.inc"
+                },
+                {
+                    "type": "path",
+                    "relative": false,
+                    "path": "C:/Users/lflouis/archive_local_spineopt_backbone_comparison/6unit_storage/investInit.gms"
+                },
+                {
+                    "type": "path",
+                    "relative": false,
+                    "path": "C:/Users/lflouis/archive_local_spineopt_backbone_comparison/6unit_storage/modelsInit.gms"
+                },
+                {
+                    "type": "path",
+                    "relative": false,
+                    "path": "C:/Users/lflouis/archive_local_spineopt_backbone_comparison/6unit_storage/scheduleInit.gms"
+                },
+                {
+                    "type": "path",
+                    "relative": false,
+                    "path": "C:/Users/lflouis/archive_local_spineopt_backbone_comparison/6unit_storage/timeAndSamples.inc"
+                }
+            ],
+            "db_references": []
+        },
+        "BB_sets (2)": {
+            "type": "Data Transformer",
+            "description": "",
+            "x": -3.7929069646089033,
+            "y": 875.9708824988879,
+            "specification": "ToBackboneSets"
+        },
+        "SO_results_3": {
+            "type": "Data Store",
+            "description": "",
+            "x": 601.7740567354844,
+            "y": 729.1197379224944,
+            "url": {
+                "dialect": "sqlite",
+                "host": "",
+                "port": "",
+                "database": {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/items/so_results_3/SO_results_3.sqlite"
+                }
+            }
+        },
+        "BB_results_3": {
+            "type": "Data Store",
+            "description": "",
+            "x": 603.35728437337,
+            "y": 871.903590134928,
+            "url": {
+                "dialect": "sqlite",
+                "host": "",
+                "port": "",
+                "database": {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/items/bb_results_3/BB_results_3.sqlite"
+                }
+            }
+        },
+        "Results Comparison (2)": {
+            "type": "Tool",
+            "description": "",
+            "x": 768.2544145495417,
+            "y": 784.713231121435,
+            "specification": "Results Comparison",
+            "execute_in_work": true,
+            "cmd_line_args": [
+                {
+                    "type": "resource",
+                    "arg": "db_url@BB_results_3"
+                },
+                {
+                    "type": "resource",
+                    "arg": "db_url@SO_results_3"
+                },
+                {
+                    "type": "resource",
+                    "arg": "db_url@Comparison Results 3"
+                }
+            ],
+            "kill_completed_processes": false
+        },
+        "Comparison Results 3": {
+            "type": "Data Store",
+            "description": "",
+            "x": 924.5145304236,
+            "y": 781.3295506172263,
+            "url": {
+                "dialect": "sqlite",
+                "host": "",
+                "port": "",
+                "database": {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/items/comparison_results_3/Comparison Results 3.sqlite"
+                }
+            }
+        },
+        "Full_BB_data": {
+            "type": "Data Store",
+            "description": "",
+            "x": -276.36982049502257,
+            "y": -114.3807043191764,
+            "url": {
+                "dialect": "sqlite",
+                "host": "",
+                "port": "",
+                "database": {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/items/full_bb_data/Full_BB_data.sqlite"
+                }
+            }
+        },
+        "Alternative_SO_data": {
+            "type": "Data Store",
+            "description": "",
+            "x": -350.942384656581,
+            "y": 6.875656037438677,
+            "url": {
+                "dialect": "sqlite",
+                "host": "",
+                "port": "",
+                "database": {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/items/alternative_so_data/Alternative_SO_data.sqlite"
+                }
+            }
+        },
+        "Alternative_BB_data": {
+            "type": "Data Store",
+            "description": "",
+            "x": -354.64941928591463,
+            "y": 116.90261831716083,
+            "url": {
+                "dialect": "sqlite",
+                "host": "",
+                "port": "",
+                "database": {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/items/alternative_bb_data/Alternative_BB_data.sqlite"
+                }
+            }
+        },
+        "Alternative_SO_data_2": {
+            "type": "Data Store",
+            "description": "",
+            "x": -232.87687279350212,
+            "y": 1.6297891615837727,
+            "url": {
+                "dialect": "sqlite",
+                "host": "",
+                "port": "",
+                "database": {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/items/alternative_so_data_2/Alternative_SO_data_2.sqlite"
+                }
+            }
+        },
+        "Alternative_BB_data_2": {
+            "type": "Data Store",
+            "description": "",
+            "x": -232.87687279350206,
+            "y": 122.74389116553816,
+            "url": {
+                "dialect": "sqlite",
+                "host": "",
+                "port": "",
+                "database": {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/items/alternative_bb_data_2/Alternative_BB_data_2.sqlite"
+                }
+            }
+        },
+        "Alternative_SO_data_3": {
+            "type": "Data Store",
+            "description": "",
+            "x": -99.58301372260047,
+            "y": -248.95753430650115,
+            "url": {
+                "dialect": "sqlite",
+                "host": "",
+                "port": "",
+                "database": {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/items/alternative_so_data_3/Alternative_SO_data_3.sqlite"
+                }
+            }
+        },
+        "Alternative_BB_data_3": {
+            "type": "Data Store",
+            "description": "",
+            "x": -97.47664369395213,
+            "y": -126.89304414667518,
+            "url": {
+                "dialect": "sqlite",
+                "host": "",
+                "port": "",
+                "database": {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/items/alternative_bb_data_3/Alternative_BB_data_3.sqlite"
+                }
+            }
+        },
+        "SO_data_4": {
+            "type": "Data Store",
+            "description": "",
+            "x": -133.83751233676367,
+            "y": 1149.067032913403,
+            "url": {
+                "dialect": "sqlite",
+                "host": "",
+                "port": "",
+                "database": {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/items/so_data_4/SO_data_4.sqlite"
+                }
+            }
+        },
+        "BB_data_4": {
+            "type": "Data Store",
+            "description": "",
+            "x": -418.82729173078417,
+            "y": 1206.6128813693629,
+            "url": {
+                "dialect": "sqlite",
+                "host": "",
+                "port": "",
+                "database": {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/items/bb_data_4/BB_data_4.sqlite"
+                }
+            }
+        },
+        "Backbone 2 (2)": {
+            "type": "Tool",
+            "description": "",
+            "x": 287.52949651764976,
+            "y": 1314.870605347762,
+            "specification": "Backbone 2",
+            "execute_in_work": true,
+            "cmd_line_args": [],
+            "kill_completed_processes": false
+        },
+        "SpineOpt 2 (2)": {
+            "type": "Tool",
+            "description": "",
+            "x": 282.23611565201907,
+            "y": 1151.8571654574985,
+            "specification": "Run SpineOpt",
+            "execute_in_work": true,
+            "cmd_line_args": [
+                {
+                    "type": "resource",
+                    "arg": "db_url@SO_data_4"
+                },
+                {
+                    "type": "resource",
+                    "arg": "db_url@SO_results_4"
+                }
+            ],
+            "kill_completed_processes": false
+        },
+        "BB_sets (3)": {
+            "type": "Data Transformer",
+            "description": "",
+            "x": 11.931077856233571,
+            "y": 1314.623410506929,
+            "specification": "ToBackboneSets"
+        },
+        "BB_config_files (3)": {
+            "type": "Data Connection",
+            "description": "",
+            "x": 141.14423638808438,
+            "y": 1451.613024146143,
+            "file_references": [
+                {
+                    "type": "path",
+                    "relative": false,
+                    "path": "C:/Users/lflouis/archive_local_spineopt_backbone_comparison/6unit_storage/1_options.gms"
+                },
+                {
+                    "type": "path",
+                    "relative": false,
+                    "path": "C:/Users/lflouis/archive_local_spineopt_backbone_comparison/6unit_storage/6unit_storage_test_scenarios.json"
+                },
+                {
+                    "type": "path",
+                    "relative": false,
+                    "path": "C:/Users/lflouis/archive_local_spineopt_backbone_comparison/6unit_storage/inputData.inc"
+                },
+                {
+                    "type": "path",
+                    "relative": false,
+                    "path": "C:/Users/lflouis/archive_local_spineopt_backbone_comparison/6unit_storage/inputData_.inc"
+                },
+                {
+                    "type": "path",
+                    "relative": false,
+                    "path": "C:/Users/lflouis/archive_local_spineopt_backbone_comparison/6unit_storage/investInit.gms"
+                },
+                {
+                    "type": "path",
+                    "relative": false,
+                    "path": "C:/Users/lflouis/archive_local_spineopt_backbone_comparison/6unit_storage/modelsInit.gms"
+                },
+                {
+                    "type": "path",
+                    "relative": false,
+                    "path": "C:/Users/lflouis/archive_local_spineopt_backbone_comparison/6unit_storage/scheduleInit.gms"
+                },
+                {
+                    "type": "path",
+                    "relative": false,
+                    "path": "C:/Users/lflouis/archive_local_spineopt_backbone_comparison/6unit_storage/timeAndSamples.inc"
+                }
+            ],
+            "db_references": []
+        },
+        "Export_to_BB (3)": {
+            "type": "Exporter",
+            "description": "",
+            "x": 144.6930739192606,
+            "y": 1315.0912248760335,
+            "output_time_stamps": false,
+            "cancel_on_error": true,
+            "output_labels": [
+                {
+                    "in_label": "db_url@BB_sets (3)",
+                    "out_label": "inputData.gdx"
+                }
+            ],
+            "specification": "ExportToBB"
+        },
+        "Results Importer (3)": {
+            "type": "Importer",
+            "description": "",
+            "x": 449.7196836879342,
+            "y": 1314.3757083212952,
+            "specification": "Results Importer",
+            "cancel_on_error": false,
+            "on_conflict": "merge",
+            "file_selection": [
+                [
+                    "Backbone.lst",
+                    false
+                ],
+                [
+                    "output/results.gdx",
+                    true
+                ]
+            ]
+        },
+        "SO_results_4": {
+            "type": "Data Store",
+            "description": "",
+            "x": 620.141565893353,
+            "y": 1152.909234186611,
+            "url": {
+                "dialect": "sqlite",
+                "host": "",
+                "port": "",
+                "database": {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/items/so_results_4/SO_results_4.sqlite"
+                }
+            }
+        },
+        "BB_results_4": {
+            "type": "Data Store",
+            "description": "",
+            "x": 615.714380186297,
+            "y": 1314.8706053477615,
+            "url": {
+                "dialect": "sqlite",
+                "host": "",
+                "port": "",
+                "database": {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/items/bb_results_4/BB_results_4.sqlite"
+                }
+            }
+        },
+        "Results Comparison (3)": {
+            "type": "Tool",
+            "description": "",
+            "x": 773.5786543618112,
+            "y": 1236.0209904403596,
+            "specification": "Results Comparison",
+            "execute_in_work": true,
+            "cmd_line_args": [
+                {
+                    "type": "resource",
+                    "arg": "db_url@BB_results_4"
+                },
+                {
+                    "type": "resource",
+                    "arg": "db_url@SO_results_4"
+                },
+                {
+                    "type": "resource",
+                    "arg": "db_url@Comparison Results 4"
+                }
+            ],
+            "kill_completed_processes": false
+        },
+        "Comparison Results 4": {
+            "type": "Data Store",
+            "description": "",
+            "x": 939.8021668693077,
+            "y": 1238.1520611135327,
+            "url": {
+                "dialect": "sqlite",
+                "host": "",
+                "port": "",
+                "database": {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/items/comparison_results_4/Comparison Results 4.sqlite"
+                }
+            }
+        },
+        "BB_data_4_bis": {
+            "type": "Data Store",
+            "description": "",
+            "x": -134.31234229636124,
+            "y": 1317.5123248910625,
+            "url": {
+                "dialect": "sqlite",
+                "host": "",
+                "port": "",
+                "database": {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/items/bb_data_4_bis/BB_data_4_bis.sqlite"
+                }
+            }
+        }
+    }
+}
