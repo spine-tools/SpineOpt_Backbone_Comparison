@@ -1,0 +1,20 @@
+[PROJECT]
+
+[OPENWINDOW_1]
+FILE0=C:\Users\lflouis\.spinetoolbox\work\backbone__3ff85b4b9822420f8828a1fa46913009__toolbox\output\results.gdx
+FILE1=C:\Users\lflouis\.spinetoolbox\work\backbone_2__2f413369c7664cf4ba66eae98f545e91__toolbox\Backbone.lst
+FILE2=C:\Users\lflouis\small_system_2_comparison\backbone-mopo_6unit_storage_tests\backbone-mopo_6unit_storage_tests\Backbone.gms
+FILE3=C:\Users\lflouis\.spinetoolbox\work\backbone__3ff85b4b9822420f8828a1fa46913009__toolbox\output\results.gdx
+MAXIM=0
+TOP=0
+LEFT=0
+HEIGHT=655
+WIDTH=1254
+
+[GDXDISP: r_cost_unitFuelEmissionCost_u Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
