@@ -7,3 +7,6 @@ Comparing SpineOpt and Backbone on a 6-unit system
 - In the word document "Notes_Translation_Backbone_SpineOpt.docx" you will be able to find more precisions on the system, observations on the differences between SpineOpt and Backbone and some conclusions about them.
 
 Side note: the Spine-Toolbox project uses Backbone. A valid GAMS licence is required to use it.
+
+Related issue: 
+[https://github.com/spine-tools/SpineOpt.jl/issues/733](https://github.com/spine-tools/SpineOpt.jl/issues/733)
