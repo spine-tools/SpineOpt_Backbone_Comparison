@@ -60,8 +60,7 @@
                             },
                             {
                                 "map_type": "Alternative",
-                                "position": "hidden",
-                                "value": "Results"
+                                "position": "hidden"
                             },
                             {
                                 "map_type": "ParameterValueMetadata",
@@ -564,8 +563,7 @@
                             },
                             {
                                 "map_type": "Alternative",
-                                "position": "hidden",
-                                "value": "Results"
+                                "position": "hidden"
                             },
                             {
                                 "map_type": "ParameterValueMetadata",
@@ -969,8 +967,7 @@
                             },
                             {
                                 "map_type": "Alternative",
-                                "position": "hidden",
-                                "value": "Results"
+                                "position": "hidden"
                             },
                             {
                                 "map_type": "ParameterValueMetadata",
@@ -2422,8 +2419,7 @@
                             },
                             {
                                 "map_type": "Alternative",
-                                "position": "hidden",
-                                "value": "Results"
+                                "position": "hidden"
                             },
                             {
                                 "map_type": "ParameterValueMetadata",
@@ -2610,6 +2606,106 @@
                         ]
                     }
                 }
+            ],
+            "r_emission_g": [
+                {
+                    "Mapping 1": {
+                        "mapping": [
+                            {
+                                "map_type": "ObjectClass",
+                                "position": "hidden"
+                            },
+                            {
+                                "map_type": "Object",
+                                "position": "hidden"
+                            },
+                            {
+                                "map_type": "ObjectMetadata",
+                                "position": "hidden"
+                            }
+                        ]
+                    }
+                }
+            ],
+            "r_genByUnittype_g": [
+                {
+                    "Mapping 1": {
+                        "mapping": [
+                            {
+                                "map_type": "ObjectClass",
+                                "position": "hidden"
+                            },
+                            {
+                                "map_type": "Object",
+                                "position": "hidden"
+                            },
+                            {
+                                "map_type": "ObjectMetadata",
+                                "position": "hidden"
+                            }
+                        ]
+                    }
+                }
+            ],
+            "r_invest_unitEnergyCost_gnu": [
+                {
+                    "Mapping 1": {
+                        "mapping": [
+                            {
+                                "map_type": "ObjectClass",
+                                "position": "hidden"
+                            },
+                            {
+                                "map_type": "Object",
+                                "position": "hidden"
+                            },
+                            {
+                                "map_type": "ObjectMetadata",
+                                "position": "hidden"
+                            }
+                        ]
+                    }
+                }
+            ],
+            "r_reserve_g": [
+                {
+                    "Mapping 1": {
+                        "mapping": [
+                            {
+                                "map_type": "ObjectClass",
+                                "position": "hidden"
+                            },
+                            {
+                                "map_type": "Object",
+                                "position": "hidden"
+                            },
+                            {
+                                "map_type": "ObjectMetadata",
+                                "position": "hidden"
+                            }
+                        ]
+                    }
+                }
+            ],
+            "r_stability_rocof_unit_ft": [
+                {
+                    "Mapping 1": {
+                        "mapping": [
+                            {
+                                "map_type": "ObjectClass",
+                                "position": "hidden"
+                            },
+                            {
+                                "map_type": "Object",
+                                "position": "hidden"
+                            },
+                            {
+                                "map_type": "ObjectMetadata",
+                                "position": "hidden"
+                            }
+                        ]
+                    }
+                }
             ]
         },
         "selected_tables": [
@@ -2731,7 +2827,12 @@
             "r_info_solveStatus": {},
             "r_info_metadata": {},
             "r_info_mSettings": {},
-            "r_info_t_realized": {}
+            "r_info_t_realized": {},
+            "r_genByUnittype_g": {},
+            "r_invest_unitEnergyCost_gnu": {},
+            "r_emission_g": {},
+            "r_reserve_g": {},
+            "r_stability_rocof_unit_ft": {}
         },
         "table_types": {
             "r_state_gnft": {
@@ -2855,6 +2956,48 @@
                 "5": "string"
             },
             "r_qGen_gn": {
+                "0": "string",
+                "1": "string",
+                "2": "string",
+                "3": "string"
+            },
+            "r_stateSlack_gnft": {
+                "0": "string",
+                "1": "string",
+                "2": "string",
+                "3": "string",
+                "4": "string",
+                "5": "string"
+            },
+            "r_genByUnittype_g": {
+                "0": "string",
+                "1": "string",
+                "2": "string"
+            },
+            "r_shutdown_uft": {
+                "0": "string",
+                "1": "string",
+                "2": "string",
+                "3": "string"
+            },
+            "r_invest_unitEnergyCost_gnu": {
+                "0": "string",
+                "1": "string",
+                "2": "string",
+                "3": "string"
+            },
+            "r_emission_g": {
+                "0": "string",
+                "1": "string",
+                "2": "string"
+            },
+            "r_reserve_g": {
+                "0": "string",
+                "1": "string",
+                "2": "string",
+                "3": "string"
+            },
+            "r_stability_rocof_unit_ft": {
                 "0": "string",
                 "1": "string",
                 "2": "string",

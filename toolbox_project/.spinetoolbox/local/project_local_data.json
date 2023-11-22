@@ -3,13 +3,6 @@
         "BB_config_files": {
             "db_credentials": {}
         },
-        "Export_to_BB": {},
-        "SO_data": {
-            "url": {
-                "username": "",
-                "password": ""
-            }
-        },
         "SO_results": {
             "url": {
                 "username": "",
@@ -28,116 +21,6 @@
                 "password": ""
             }
         },
-        "BB_data": {
-            "url": {
-                "username": "",
-                "password": ""
-            }
-        },
-        "BB_data_2": {
-            "url": {
-                "username": "",
-                "password": ""
-            }
-        },
-        "SO_data_2": {
-            "url": {
-                "username": "",
-                "password": ""
-            }
-        },
-        "Export_to_BB (1)": {},
-        "BB_config_files (1)": {
-            "db_credentials": {}
-        },
-        "BB_results_2": {
-            "url": {
-                "username": "",
-                "password": ""
-            }
-        },
-        "SO_results_2": {
-            "url": {
-                "username": "",
-                "password": ""
-            }
-        },
-        "Comparison Results 2": {
-            "url": {
-                "username": "",
-                "password": ""
-            }
-        },
-        "Full_SO_data": {
-            "url": {
-                "username": "",
-                "password": ""
-            }
-        },
-        "SO_data_3": {
-            "url": {
-                "username": "",
-                "password": ""
-            }
-        },
-        "BB_data_3": {
-            "url": {
-                "username": "",
-                "password": ""
-            }
-        },
-        "Export_to_BB (2)": {},
-        "BB_config_files (2)": {
-            "db_credentials": {}
-        },
-        "SO_results_3": {
-            "url": {
-                "username": "",
-                "password": ""
-            }
-        },
-        "BB_results_3": {
-            "url": {
-                "username": "",
-                "password": ""
-            }
-        },
-        "Comparison Results 3": {
-            "url": {
-                "username": "",
-                "password": ""
-            }
-        },
-        "Full_BB_data": {
-            "url": {
-                "username": "",
-                "password": ""
-            }
-        },
-        "Alternative_SO_data": {
-            "url": {
-                "username": "",
-                "password": ""
-            }
-        },
-        "Alternative_BB_data": {
-            "url": {
-                "username": "",
-                "password": ""
-            }
-        },
-        "Alternative_SO_data_2": {
-            "url": {
-                "username": "",
-                "password": ""
-            }
-        },
-        "Alternative_BB_data_2": {
-            "url": {
-                "username": "",
-                "password": ""
-            }
-        },
         "Alternative_SO_data_3": {
             "url": {
                 "username": "",
@@ -150,45 +33,6 @@
                 "password": ""
             }
         },
-        "SO_data_4": {
-            "url": {
-                "username": "",
-                "password": ""
-            }
-        },
-        "BB_data_4": {
-            "url": {
-                "username": "",
-                "password": ""
-            }
-        },
-        "BB_config_files (3)": {
-            "db_credentials": {}
-        },
-        "Export_to_BB (3)": {},
-        "SO_results_4": {
-            "url": {
-                "username": "",
-                "password": ""
-            }
-        },
-        "BB_results_4": {
-            "url": {
-                "username": "",
-                "password": ""
-            }
-        },
-        "Comparison Results 4": {
-            "url": {
-                "username": "",
-                "password": ""
-            }
-        },
-        "BB_data_4_bis": {
-            "url": {
-                "username": "",
-                "password": ""
-            }
-        }
+        "Export_to_BB": {}
     }
 }

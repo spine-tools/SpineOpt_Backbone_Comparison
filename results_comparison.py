@@ -34,7 +34,7 @@ so_data = api.export_data(db_so)
 try:
     new_parameter_values = []
     results = []
-    alternative_name = "Comparison Results"
+    alternative_name = bb_data['alternatives'][0][0] + "_" + so_data['alternatives'][0][0]
 
     for value_so in so_data['relationship_parameter_values']:
         for value_bb in bb_data['relationship_parameter_values']:
